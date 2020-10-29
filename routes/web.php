@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::inertia('/', 'Home');
+Route::inertia('about', 'About');
+Route::inertia('posts', 'Posts');
+
+Route::resource('todos', TodoController::class);
